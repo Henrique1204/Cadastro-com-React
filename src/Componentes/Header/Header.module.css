@@ -9,3 +9,9 @@
 .Header h1 {
     font-size: 1.8em;
 }
+
+@media (max-width: 768px) {
+    .Header p {
+        display: none;
+    }
+}

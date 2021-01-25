@@ -20,7 +20,7 @@
 
 /* Layout Grid */
 .App {
-    height: 100vh;
+    min-height: 100vh;
     margin: 0px;
     background-color: #F4F4F4;
     display: grid;
@@ -47,4 +47,20 @@ main.main {
 
 footer.footer {
     grid-area: Footer;
+}
+
+@media (max-width: 768px) {
+    .App {
+        grid-template-columns: var(--aside-width) 1fr;
+        grid-template-rows: repeat(2, auto) 1fr var(--footer-height);
+        grid-template-areas: "Logo Header" "Nav Nav" "Main Main" "Footer Footer";
+    }
+}
+
+@media (max-width: 576px) {
+    .App {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(auto, var(--logo-height)) auto 1fr var(--footer-height);
+        grid-template-areas: "Logo" "Nav" "Main" "Footer";
+    }
 }

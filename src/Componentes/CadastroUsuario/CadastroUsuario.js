@@ -71,7 +71,7 @@ const CadastroUsuario = () => {
         >
             <Form value={user} setValue={atualizarCampos} limpar={limpar} submit={salvar} />
             {
-                lista?.length && <Tabela  lista={lista} carregar={carregar} remover={remover} />
+                lista?.length !== 0 && <Tabela  lista={lista} carregar={carregar} remover={remover} />
             }
         </Main>
     );

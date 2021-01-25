@@ -9,6 +9,7 @@
 
 .menu ul{
     padding: 0;
+    margin: 0;
     list-style: none;
 }
 
@@ -22,4 +23,16 @@
 
 .menu a:hover, .menu a:focus {
     background: linear-gradient(135deg, #07A7E3, #32DAC3);
+}
+
+@media (max-width: 768px) {
+    .menu ul{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .menu a {
+        padding: 10px;
+    }
 }
