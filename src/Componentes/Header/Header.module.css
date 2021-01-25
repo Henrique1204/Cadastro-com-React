@@ -1,0 +1,11 @@
+.Header {
+    padding: 0 15px;
+    white-space: nowrap;
+    background-color: #FFF;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.Header h1 {
+    font-size: 1.8em;
+}

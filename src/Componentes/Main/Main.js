@@ -4,10 +4,10 @@ import estilos from "./Main.module.css";
 // Importando componentes da interface.
 import Header from "../Header/Header.js";
 
-const Main = () => {
+const Main = (props) => {
     return (
         <>
-            <Header />
+            <Header {...props} />
 
             <main className={`main ${estilos.Main}`}>
                 Conteúdo

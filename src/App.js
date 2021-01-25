@@ -12,7 +12,7 @@ const App = ()  => {
     <div className="App">
       <Logo />
       <Nav />
-      <Main />
+      <Main icon="home" titulo="Inicío" subtitulo="Projeto cadastro de usuários." />
       <Footer />
     </div>
   );
