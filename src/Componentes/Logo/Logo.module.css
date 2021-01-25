@@ -1,0 +1,12 @@
+.Logo {
+    padding: 0 15px;
+    background-color: var(--bg-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Logo img {
+    max-width: 100%;
+    display: block;
+}
