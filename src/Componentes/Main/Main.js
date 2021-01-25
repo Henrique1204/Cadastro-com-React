@@ -9,7 +9,7 @@ const Main = () => {
         <>
             <Header />
 
-            <main className={estilos.Main}>
+            <main className={`main ${estilos.Main}`}>
                 Conteúdo
             </main>
         </>

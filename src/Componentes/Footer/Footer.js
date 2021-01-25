@@ -4,7 +4,7 @@ import estilos from "./Footer.module.css";
 
 const Footer = () => {
     return (
-        <footer className={estilos.Footer}>
+        <footer className={`footer ${estilos.Footer}`}>
             Rodapé
         </footer>
     );

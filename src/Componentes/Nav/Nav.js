@@ -4,7 +4,7 @@ import estilos from "./Nav.module.css";
 
 const Nav = () => {
     return (
-        <aside className={estilos.Nav}>
+        <aside className={`nav ${estilos.Nav}`}>
             Navegação
         </aside>
     );

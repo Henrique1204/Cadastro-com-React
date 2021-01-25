@@ -4,7 +4,7 @@ import estilos from "./Header.module.css";
 
 const Header = () => {
     return (
-        <header className={estilos.Header}>
+        <header className={`header ${estilos.Header}`}>
             Cabeçalho
         </header>
     );

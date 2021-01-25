@@ -1,0 +1,50 @@
+/* Importando font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+:root {
+    /* Cores */
+    --bg-dark: #1A2F3A;
+    /* Medidas */
+    --logo-height: 100px;
+    --header-height: 100px;
+    --aside-width: 225px;
+    --footer-height: 40px;
+    /* Efeitos */
+    --shadow: 0 2px 23px 0 rgba(0, 0, 0, 0.1), 0 2px 49px 0 rgba(0, 0, 0, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Layout Grid */
+.App {
+    height: 100vh;
+    margin: 0px;
+    background-color: #F4F4F4;
+    display: grid;
+    grid-template-columns: var(--aside-width) 1fr;
+    grid-template-rows: var(--header-height) 1fr var(--footer-height);
+    grid-template-areas: "Logo Header" "Nav Main" "Nav Footer";
+}
+
+header.header {
+    grid-area: Header;
+}
+
+aside.logo {
+    grid-area: Logo;
+}
+
+aside.nav {
+    grid-area: Nav;
+}
+
+main.main {
+    grid-area: Main;
+}
+
+footer.footer {
+    grid-area: Footer;
+}

@@ -4,7 +4,7 @@ import estilos from "./Logo.module.css";
 
 const Logo = () => {
     return (
-        <aside className={estilos.Logo}>
+        <aside className={`logo ${estilos.Logo}`}>
             Logo
         </aside>
     );
