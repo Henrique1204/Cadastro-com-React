@@ -1,6 +1,11 @@
 import React from "react";
 
-const Form = ({ handleSubmit, value, setValue, setSubmit }) => {
+const Form = ({ value, setValue, limpar, submit }) => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        submit();
+    }
+
     return (
         <form className="form" onSubmit={handleSubmit}>
             <div className="row">
@@ -39,12 +44,8 @@ const Form = ({ handleSubmit, value, setValue, setSubmit }) => {
 
             <div className="row">
                 <div className="col-12 d-flex justify-content-end">
-                    <button
-                        className="btn btn-primary"
-                        onClick={() => setSubmit("salvar")}
-                    >Salvar</button>
-
-                    <button className="btn btn-secondary mx-2">Cancelar</button>
+                    <button className="btn btn-primary">Salvar</button>
+                    <button className="btn btn-secondary mx-2" onClick={limpar}>Cancelar</button>
                 </div>
             </div>
         </form>

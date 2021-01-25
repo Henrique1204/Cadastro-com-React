@@ -2,6 +2,7 @@ import React from "react";
 // Importando componentes da interface.
 import Main from "../Main/Main.js";
 import Form from "../Form/Form.js";
+import Tabela from "../Tabela/Tabela.js";
 
 const baseURL = "http://localhost:3001/users";
 
@@ -16,7 +17,6 @@ const initialState = {
 const CadastroUsuario = () => {
     const [lista, setLista] = React.useState(initialState.lista);
     const [user, setUser] = React.useState(initialState.user);
-    const [submit, setSubmit] = React.useState(null);
 
     const limpar = () => setUser(initialState.user);
 
@@ -24,6 +24,8 @@ const CadastroUsuario = () => {
         ...user,
         [target.name]: target.value
     }));
+
+    const carregar = (user) => setUser(user);
 
     const salvar = async () => {
         const method = (user?.id) ? "PUT" : "POST";
@@ -39,23 +41,27 @@ const CadastroUsuario = () => {
 
         const json = await res.json();
 
-        setLista((lista) => {
-            const listaNova = lista.filter((item) => item.id !== json.id );
-            listaNova.unshift(json);
-
-            limpar();
-            return listaNova;
-        });
+        setLista((lista) => lista.filter((item) => item.id !== json.id)
+            .reduce((ant, atual) => [...ant, atual], [json])
+        );
+        limpar();
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const remover = async (user) => {
+        await fetch(`${baseURL}/${user.id}`, { method: "DELETE" });
+        setLista((lista) => lista.filter((item) => item.id !== user.id));
+    };
 
-        if (submit === "salvar") {
-            salvar();
-            setSubmit(null);
+    React.useEffect(() => {
+        const fetchLista = async () => {
+            const res = await fetch(baseURL);
+            const json = await res.json();
+
+            if (res.ok !== false) setLista(json);
         }
-    }
+
+        fetchLista();
+    }, []);
 
     return (
         <Main
@@ -63,12 +69,10 @@ const CadastroUsuario = () => {
             titulo="Usuários"
             subtitulo="Cadastro de usuários: Incluir, Listar, Alterar e Excluir"
         >
-            <Form
-                handleSubmit={handleSubmit}
-                value={user}
-                setValue={atualizarCampos}
-                setSubmit={setSubmit}
-            />
+            <Form value={user} setValue={atualizarCampos} limpar={limpar} submit={salvar} />
+            {
+                lista?.length && <Tabela  lista={lista} carregar={carregar} remover={remover} />
+            }
         </Main>
     );
 };
