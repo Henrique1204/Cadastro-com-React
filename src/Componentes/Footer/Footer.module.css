@@ -1,0 +1,23 @@
+.Footer {
+    padding: 0 25px;
+    background-color: #FFF;
+    box-shadow: var(--shador);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.Footer p {
+    margin: 0;
+}
+
+.Footer a {
+    font-weight: 500;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.Footer a:hover {
+    color: #79D;
+}
