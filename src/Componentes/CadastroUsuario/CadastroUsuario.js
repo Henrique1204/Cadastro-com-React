@@ -1,6 +1,7 @@
 import React from "react";
 // Importando componentes da interface.
 import Main from "../Main/Main.js";
+import Form from "../Form/Form.js";
 
 const baseURL = "http://localhost:3001/users";
 
@@ -15,6 +16,7 @@ const initialState = {
 const CadastroUsuario = () => {
     const [lista, setLista] = React.useState(initialState.lista);
     const [user, setUser] = React.useState(initialState.user);
+    const [submit, setSubmit] = React.useState(null);
 
     const limpar = () => setUser(initialState.user);
 
@@ -46,13 +48,27 @@ const CadastroUsuario = () => {
         });
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (submit === "salvar") {
+            salvar();
+            setSubmit(null);
+        }
+    }
+
     return (
         <Main
             icon="users"
             titulo="Usuários"
             subtitulo="Cadastro de usuários: Incluir, Listar, Alterar e Excluir"
         >
-            Cadastro Usuário
+            <Form
+                handleSubmit={handleSubmit}
+                value={user}
+                setValue={atualizarCampos}
+                setSubmit={setSubmit}
+            />
         </Main>
     );
 };
