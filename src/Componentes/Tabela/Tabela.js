@@ -1,8 +1,9 @@
 import React from "react";
 
 const Tabela = ({ lista, carregar, remover }) => {
+
     return (
-        <table className="table mt-4 d-none">
+        <table className="table mt-4 tabela">
             <thead>
                 <tr>
                     <th>ID</th>

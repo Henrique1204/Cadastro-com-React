@@ -63,4 +63,8 @@ footer.footer {
         grid-template-rows: minmax(auto, var(--logo-height)) auto 1fr var(--footer-height);
         grid-template-areas: "Logo" "Nav" "Main" "Footer";
     }
+
+    .tabela {
+        display: none;
+    }
 }

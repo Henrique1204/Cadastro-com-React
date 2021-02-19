@@ -60,7 +60,7 @@ const CadastroUsuario = () => {
             if (res.ok !== false) setLista(json);
         }
 
-        fetchLista();
+        fetchLista(); 
     }, []);
 
     return (

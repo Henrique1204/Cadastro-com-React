@@ -45,7 +45,7 @@ const Form = ({ value, setValue, limpar, submit }) => {
             <div className="row">
                 <div className="col-12 d-flex justify-content-end">
                     <button className="btn btn-primary">Salvar</button>
-                    <button className="btn btn-secondary mx-2" onClick={limpar}>Cancelar</button>
+                    <button type="button" className="btn btn-secondary mx-2" onClick={limpar}>Cancelar</button>
                 </div>
             </div>
         </form>
